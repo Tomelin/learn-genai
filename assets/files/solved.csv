@@ -1,0 +1,287 @@
+email,team name;description task ,solution,solution example
+user1@example.com,DevOps;Pod failing to start with ImagePullBackOff,Check image name, tag, registry credentials in the pod spec and secrets. Ensure DockerHub isn't rate limited.,`kubectl describe pod <pod-name>` and `kubectl get secrets docker-registry <secret-name> -o yaml`
+user2@example.com,Platform;Service not routing traffic correctly,Verify service selectors match pod labels, endpoint slices are generated correctly, and kube-proxy is running on nodes.,`kubectl get endpoints <service-name>` and `kubectl describe service <service-name>`
+user3@example.com,Security;Suspected unauthorized access to cluster,Review Kubernetes audit logs, enable RBAC (Role-Based Access Control), and check API server authentication flags.,`kubectl get clusterrolebindings` and analyze audit logs in `/var/log/kube-apiserver/audit.log` (location may vary).
+user4@example.com,Database;PersistentVolumeClaim (PVC) stuck in pending state,Ensure a PersistentVolume (PV) exists that satisfies the PVC's requirements (storage class, access modes, size). If using dynamic provisioning, verify storage class exists and is correctly configured.,`kubectl get pvc` and `kubectl get pv`
+user5@example.com,Networking;DNS resolution failing within pods,Verify `kube-dns` or CoreDNS is running correctly in the `kube-system` namespace, and that the pod's `/etc/resolv.conf` is configured correctly. Check network policies.,`kubectl get pods -n kube-system -l k8s-app=kube-dns` and `kubectl exec -it <pod-name> -- cat /etc/resolv.conf`
+user6@example.com,Application;Deployment not scaling,Check the Horizontal Pod Autoscaler (HPA) configuration, resource requests/limits on pods, and node resource availability (CPU, memory).,`kubectl get hpa` and `kubectl describe hpa <hpa-name>`
+user7@example.com,Monitoring;Metrics server not collecting metrics,Ensure metrics server is deployed correctly and nodes are properly configured to expose metrics. Check RBAC permissions.,`kubectl get deployment metrics-server -n kube-system` and `kubectl logs -n kube-system <metrics-server-pod-name>`
+user8@example.com,Infra;Node failing to join cluster,Check kubelet configuration (kubeconfig, API server address), network connectivity between node and master, and certificate validity.,`journalctl -u kubelet` on the failing node.  Verify `/var/lib/kubelet/kubeconfig` exists and is valid.
+user9@example.com,DevOps;Job failing to complete,Examine job logs, check pod status, and verify resource limits are sufficient.,`kubectl logs <job-pod-name>` and `kubectl describe job <job-name>`
+user10@example.com,Security;Secret exposed in pod environment variables,Avoid storing secrets directly in environment variables. Use Kubernetes Secrets to manage sensitive data and mount them as volumes or use environment variables from secret keys.,Use `kubectl edit deployment <deployment-name>` and remove sensitive data. Replace with Secret references.
+user11@example.com,Platform;Ingress not working,Verify the Ingress controller is running, Ingress resources are correctly configured, and DNS records are pointing to the Ingress controller's IP address.,`kubectl get ingress` and `kubectl describe ingress <ingress-name>`. Check the logs of your ingress controller pods.
+user12@example.com,Database;etcd cluster unhealthy,Check etcd cluster member status, network connectivity between etcd members, and disk space on etcd nodes.,`etcdctl --endpoints=<etcd-endpoints> endpoint health`
+user13@example.com,Networking;Service discovery failing,Verify `kube-dns` or CoreDNS is correctly configured, service names are spelled correctly, and namespaces are correctly configured.,`kubectl exec -it <pod-name> -- nslookup <service-name>.<namespace>`
+user14@example.com,Application;ConfigMap not updating,Ensure the ConfigMap is mounted as a volume or used as environment variables.  Rolling update the deployment or pod to pick up the changes. Consider using `kubectl rollout restart deployment <deployment-name>`.,Edit ConfigMap `kubectl edit cm <configmap-name>` then restart Deployment.
+user15@example.com,Infra;kube-proxy failing,Check kube-proxy logs, ensure it can communicate with the API server, and that iptables or IPVS is configured correctly.,`kubectl logs -n kube-system <kube-proxy-pod-name>` and `iptables -L -n -v` on a node.
+user16@example.com,DevOps;Rolling update stuck,Check pod status, resource availability, and readiness probes. Verify the deployment's strategy is correctly configured.,`kubectl rollout status deployment <deployment-name>` and `kubectl describe deployment <deployment-name>`
+user17@example.com,Security;Service account token leaked,Rotate the service account token and update any applications using it.,`kubectl delete secret <service-account-token-name> -n <namespace>`
+user18@example.com,Platform;Node disk pressure,Identify and remove large files, clear container logs, and increase disk space.,`df -h` on the node and remove unnecessary files.
+user19@example.com,Database;Pod eviction due to resource constraints,Increase resource requests/limits for the pod, or move the pod to a node with more resources.,`kubectl edit pod <pod-name>` and adjust the `resources` section.
+user20@example.com,Networking;Cluster network not working after upgrade,Verify the CNI plugin is compatible with the new Kubernetes version and that the network configuration is still valid.,Check CNI plugin documentation and configuration files.
+user21@example.com,DevOps; Helm chart installation failing, Check helm version compatibility, tiller availability (Helm v2), and chart values., `helm ls`, `helm status <release_name>`.
+user22@example.com,Platform; Cluster Autoscaler not scaling nodes, Check cloud provider credentials, minimum/maximum node limits, and resource requests of pending pods., Analyze Cluster Autoscaler logs in `kube-system` namespace.
+user23@example.com,Security; Vulnerable container image detected, Update the container image to a patched version, rebuild and redeploy. Consider using image scanning tools for early detection., Rebuild the image with latest security patches: `docker build -t new-image:latest . && docker push new-image:latest`. Update deployment yaml file.
+user24@example.com,Database; Database connection errors, Verify network policies, DNS resolution, and database server availability. Check credentials and connection strings., `kubectl exec -it <pod> -- ping <database-service-name>`. Check database server logs.
+user25@example.com,Networking; Inter-pod communication failing, Verify network policies, CNI configuration, and DNS resolution. Check if pods are in the same namespace or if cross-namespace communication is allowed., `kubectl exec -it <pod1> -- ping <pod2-ip>`.  Examine network policy resources.
+user26@example.com,Application; Application crashing repeatedly, Analyze pod logs, check resource limits, and verify application dependencies. Consider adding liveness and readiness probes., `kubectl logs <pod-name>`. Check pod resource usage with `kubectl top pod`.
+user27@example.com,Infra; Node CPU starvation, Identify CPU-intensive processes, adjust resource requests/limits, and consider autoscaling., Use `top` on the node to identify processes consuming CPU.  Adjust resource requests/limits in the pod spec.
+user28@example.com,DevOps; Slow deployment rollout, Investigate pod status, resource availability, and readiness probes. Consider increasing rollout speed parameters., `kubectl rollout status deployment <deployment-name>`.  Adjust `maxSurge` and `maxUnavailable` parameters in the deployment spec.
+user29@example.com,Security; Excessive permissions granted to service account, Review and restrict service account permissions using RBAC. Follow the principle of least privilege., `kubectl edit serviceaccount <service-account-name>`. Remove unnecessary clusterroles and roles.
+user30@example.com,Platform; Persistent volume filling up, Identify large files, increase volume size, or implement data archiving/deletion policies., `kubectl exec -it <pod> -- du -sh /*`. Increase the PVC size or implement data lifecycle management.
+user31@example.com,Application; Deadlock in application, Analyze application logs and code, use debugging tools to identify the deadlock. Add logging and monitoring to detect future occurrences., Use debugger within the container to inspect thread states.
+user32@example.com,Infra; Ingress controller crashing, Examine Ingress controller logs, check resource limits, and verify configuration., `kubectl logs -n <ingress-namespace> <ingress-controller-pod>`.  Check ingress resource definitions for errors.
+user33@example.com,DevOps; Failed canary deployment, Analyze canary pod metrics, compare with stable deployment metrics, and adjust traffic routing accordingly., Use metrics to compare canary performance.  Adjust weights in the ingress or service mesh configuration.
+user34@example.com,Security; Kubernetes dashboard exposed publicly, Secure the Kubernetes dashboard with authentication and authorization. Avoid exposing it directly to the internet., Implement authentication and authorization for the Kubernetes dashboard.  Use a reverse proxy or VPN for access.
+user35@example.com,Platform; Container registry issues, Verify registry credentials, network connectivity, and registry availability., `docker login <registry-url>`. Check network connectivity from the Kubernetes nodes.
+user36@example.com,Database; Slow database queries, Analyze database query plans, optimize indexes, and consider database scaling., Use database profiling tools to identify slow queries.
+user37@example.com,Networking; External DNS not updating, Check external DNS controller logs, verify cloud provider credentials, and ensure proper DNS record configuration., `kubectl logs -n <external-dns-namespace> <external-dns-pod>`.  Check DNS record TTL settings.
+user38@example.com,Application; Memory leak in application, Use memory profiling tools to identify memory leaks, fix the code, and redeploy., Use tools like `jmap` or `pprof` to identify memory leaks.
+user39@example.com,Infra; Kubelet failing to start, Examine kubelet logs, check configuration files, and verify dependencies., `journalctl -u kubelet`.  Verify kubelet configuration files are correctly configured.
+user40@example.com,DevOps; Automating deployments, Implement CI/CD pipelines using tools like Jenkins, GitLab CI, or CircleCI to automate deployments., Create a CI/CD pipeline to automate building, testing, and deploying applications.
+user41@example.com,Security; Unencrypted secrets in etcd, Encrypt etcd data at rest using a KMS provider., Configure etcd encryption with KMS provider like Vault or cloud provider KMS.
+user42@example.com,Platform; Managing node taints and tolerations, Use taints and tolerations to control pod placement on nodes., `kubectl taint nodes <node-name> key=value:NoSchedule`.  Add tolerations to pod specs to allow scheduling on tainted nodes.
+user43@example.com,Database; Scaling stateful sets, Use update strategies like OnDelete or RollingUpdate to scale stateful sets. Consider using Pod Disruption Budgets., `kubectl scale statefulset <statefulset-name> --replicas=<number>`. Define Pod Disruption Budgets to ensure availability during scaling.
+user44@example.com,Networking; Load balancing across multiple clusters, Implement a global load balancer to distribute traffic across multiple Kubernetes clusters., Use tools like Google Cloud Load Balancer, AWS ELB, or Nginx Ingress to distribute traffic.
+user45@example.com,Application; Managing application configuration, Use ConfigMaps and Secrets to manage application configuration., Create ConfigMaps and Secrets to store configuration data.
+user46@example.com,Infra; Upgrading Kubernetes cluster, Follow the official Kubernetes upgrade documentation, plan for downtime, and test thoroughly., Consult official Kubernetes documentation for upgrade procedures.
+user47@example.com,DevOps; Monitoring cluster health, Use monitoring tools like Prometheus, Grafana, and ELK stack to monitor cluster health., Deploy Prometheus, Grafana, and ELK stack to collect and visualize metrics.
+user48@example.com,Security; Implementing network segmentation, Use network policies to implement network segmentation and restrict traffic between namespaces and pods., Define NetworkPolicy resources to restrict traffic based on labels.
+user49@example.com,Platform; Using resource quotas, Define resource quotas to limit resource consumption by namespaces and users., `kubectl create quota <quota-name> --hard=cpu=2,memory=1Gi --namespace=<namespace>`.
+user50@example.com,Database; Backup and restore Kubernetes resources, Use tools like Velero to backup and restore Kubernetes resources., Install and configure Velero to backup and restore resources.
+user51@example.com,DevOps; Pod failing with `CrashLoopBackOff`,Examine pod logs to identify the cause of the crash, correct the application error, and redeploy.,`kubectl logs <pod-name>` and `kubectl describe pod <pod-name>`. Fix the application error.
+user52@example.com,Platform; Service endpoint not updating after pod restart,Verify service selectors, endpoint controller status, and pod readiness probes.,`kubectl get endpoints <service-name> -o yaml` and `kubectl describe service <service-name>`
+user53@example.com,Security; Vulnerable packages in base image,Update base image to latest version with patched packages. Use image scanning tools.,Update Dockerfile with `FROM ubuntu:latest` (or equivalent). Run image scanning to verify.
+user54@example.com,Database; PersistentVolume insufficient size,Expand the PersistentVolumeClaim (PVC) to increase storage capacity. Ensure storage class supports volume expansion.,`kubectl edit pvc <pvc-name>` and increase the `spec.resources.requests.storage` value.
+user55@example.com,Networking; Pod unable to reach external service,Verify DNS resolution, network policies, and firewall rules.,`kubectl exec -it <pod-name> -- ping 8.8.8.8` and `kubectl exec -it <pod-name> -- nslookup google.com`
+user56@example.com,Application; Deployment stuck in `Progressing` state,Examine pod status, resource availability, and readiness probes. Check for image pull errors.,`kubectl rollout status deployment <deployment-name>` and `kubectl describe deployment <deployment-name>`
+user57@example.com,Monitoring; Missing custom application metrics,Instrument application to expose metrics in Prometheus format. Configure Prometheus to scrape the metrics endpoint.,Add a Prometheus client library to your application and expose a `/metrics` endpoint.
+user58@example.com,Infra; Node running out of memory,Identify memory-intensive processes, adjust resource limits, and consider node autoscaling.,`top` or `htop` on the node to identify memory consuming processes.
+user59@example.com,DevOps; Job stuck in `Running` state,Examine job logs, pod status, and resource limits. Ensure the job has sufficient permissions.,`kubectl logs <job-pod-name>` and `kubectl describe job <job-name>`
+user60@example.com,Security; Overly permissive RBAC roles,Review and restrict RBAC roles to adhere to the principle of least privilege.,`kubectl edit role <role-name>` and remove unnecessary permissions.
+user61@example.com,Platform; Cluster Autoscaler not removing nodes,Check Cluster Autoscaler logs, idle node configuration, and pod disruption budgets.,Examine Cluster Autoscaler logs in the `kube-system` namespace.
+user62@example.com,Database; Slow database connection pooling,Adjust database connection pool settings to optimize performance.,Consult database documentation for optimal connection pool configuration.
+user63@example.com,Networking; Ingress controller not forwarding traffic,Verify Ingress resource configuration, Ingress controller status, and DNS records.,`kubectl get ingress` and `kubectl describe ingress <ingress-name>`.
+user64@example.com,Application; ConfigMap values not being reflected in pods,Ensure ConfigMap is mounted as a volume or used as environment variables. Restart pods or deployments.,`kubectl rollout restart deployment <deployment-name>`.
+user65@example.com,Infra; Kube-scheduler failing to schedule pods,Examine kube-scheduler logs, node resource availability, and pod taints and tolerations.,`kubectl logs -n kube-system <kube-scheduler-pod-name>`.
+user66@example.com,DevOps; Failed deployment rollback,Examine rollback history, pod status, and configuration differences.,`kubectl rollout history deployment <deployment-name>` and `kubectl rollout undo deployment <deployment-name>`
+user67@example.com,Security; Container user running as root,Change the container user to a non-root user.,Add `USER <non-root-user>` to the Dockerfile.
+user68@example.com,Platform; Node failing to report status,Check kubelet logs, network connectivity, and API server reachability.,`journalctl -u kubelet` on the failing node.
+user69@example.com,Database; Data loss after pod eviction,Ensure proper data persistence mechanisms are in place, such as persistent volumes or external databases.,Use PersistentVolumes for data that needs to persist across pod restarts.
+user70@example.com,Networking; Service discovery failing across namespaces,Ensure proper network policies are in place to allow cross-namespace communication. Verify CoreDNS configuration.,`kubectl get networkpolicy -A` and `kubectl describe configmap coredns -n kube-system`
+user71@example.com,DevOps; Issues with Jenkins agents on Kubernetes, Verify proper pod template configuration for JNLP agents, and resource limits for Jenkins agents., Review Jenkins agent pod template yaml definition.
+user72@example.com,Platform; Node selector not working as expected, Validate node labels and ensure that pod `nodeSelector` matches, use `kubectl describe node <node-name>`, then validate `pod.spec.nodeSelector`
+user73@example.com,Security; Secrets stored in plain text in code, Refactor code to use Kubernetes Secrets for sensitive data, avoid hardcoding secrets in code., Change code to use environment variables sourced from Kubernetes Secrets.
+user74@example.com,Database; High latency to database from Kubernetes, Check network latency, database resource utilization, use `kubectl exec -it <pod> -- ping <db_host>`, and validate the db is not resource starved.
+user75@example.com,Networking; Traefik not routing based on hostnames, Validate Traefik ingressroutes, and ensure DNS configuration points to Traefik loadbalancer service., Use `kubectl describe ingressroute <name>`, and check traefik logs.
+user76@example.com,Application; Application failing to start after deployment,Check logs, resource limits, and startup probes, use `kubectl logs <pod-name>`, `kubectl describe pod <pod-name>` to validate resources.
+user77@example.com,Infra; CPU throttling on container, Increase resource requests/limits for CPU, and validate `cpu.shares` are not limiting the CPU., Edit the pod yaml and increase the CPU requests/limits.
+user78@example.com,DevOps; Automated deployment failing because of resource quota, Check resource quotas for the namespace and adjust them, use `kubectl describe quota <quota-name> -n <namespace>`.
+user79@example.com,Security; Default service account being used, Create a dedicated service account and configure RBAC, avoid using default service account., Create a new ServiceAccount and bind appropriate roles using RoleBinding or ClusterRoleBinding.
+user80@example.com,Platform; Scaling is not triggered by metrics server, Verify the metrics-server is running, and HPA is configured to use the metrics, use `kubectl describe hpa <name>`, and ensure the metrics endpoint is accessible.
+user81@example.com,DevOps; Gitlab CI failing due to Kubernetes errors, Verify the KUBECONFIG is setup correctly in Gitlab runner, and authentication works., Ensure the Gitlab runner has access to a valid kubeconfig.
+user82@example.com,Platform; Unable to apply yaml manifests, Validate yaml syntax with `kubectl apply --validate -f <file>`, if issues with validating, check K8s version. Use `kubectl version`.
+user83@example.com,Security; Kubernetes API Server exposed to public, Secure the Kubernetes API Server with firewalls and RBAC, use a LoadBalancer with a security group., Add network rules to restrict access.
+user84@example.com,Database; Database failing to replicate, Validate database replication configuration and network policies., Use DB-specific commands to check replication status, check Kubernetes Network Policies for conflicting rules.
+user85@example.com,Networking; Ambassador API gateway not routing, Review Ambassador mappings and ensure the service exists, validate mappings are correct., Use `kubectl describe mapping <mapping-name>`, check logs of ambassador.
+user86@example.com,Application; Application logging not working, Configure a logging driver (e.g. fluentd) and log rotation, use a centralized logging system like ELK., Set logging driver in docker file or use fluentd.
+user87@example.com,Infra; Node getting overloaded, Check node resources and move pods or scale horizontally, use `kubectl top node <node-name>`, and move less important workloads to other nodes.
+user88@example.com,DevOps; Helm deployment failing due to templates, Validate Helm templates using `helm template`, and fix templating syntax, use `helm template <chart>`, fix syntax errors, if values.yaml is broken.
+user89@example.com,Security; Kubernetes roles too broad, Minimize RBAC roles and only give needed permissions, follow principle of least privilege., Audit Roles and ClusterRoles and restrict access where possible.
+user90@example.com,Platform; No alerts being received from Prometheus, Validate Prometheus configuration and alert rules, check that the alertmanager configuration is working., Examine Prometheus logs, check Prometheus configuration files for errors.
+user91@example.com,DevOps; Pod status showing Evicted, Increase Pod resources or add PodDisruptionBudget, ensure `resources` section limits are sufficient., Edit Pod to increase CPU and Memory requests/limits.
+user92@example.com,Platform; NetworkPolicy blocking DNS resolution, Create NetworkPolicy allowing traffic to kube-dns in `kube-system` namespace, ensure that your dns is working., Add NetworkPolicy to allow DNS resolution.
+user93@example.com,Security; Vulnerable container registry used, Migrate to secured and trusted container registry and scan images, ensure you are using a trusted registry., Migrate to trusted registry and scan images for vulns.
+user94@example.com,Database; Corrupted volume data after restart, Ensure volume is correctly mounted and data is synced before stopping Pod, check if syncing is happening correctly., Verify volume is mounted correctly.
+user95@example.com,Networking; Istio VirtualService not routing traffic, Validate VirtualService configurations and ensure destination services exist, check destination services exist., Validate Istio VirtualService configurations.
+user96@example.com,Application; Resource leak in the application, Analyze application code using memory profilers and fix the memory leak, use memory profilers to fix leaks., Fix the resource leak in the application.
+user97@example.com,Infra; Cluster components are degraded, Check health of core components such as etcd, apiserver, scheduler, check core components., Check health of core components.
+user98@example.com,DevOps; Automated test failing in the CI, Validate configuration, check if dependencies are resolving.,  Inspect your CI system.
+user99@example.com,Security; Ingress exposing unnecessary endpoints,  Remove the public ingress and remove the ingress, Apply the least privilege principle.
+user100@example.com,Platform; Autoscaling triggered even when there is no traffic, Check metric calculations are not causing false positive scaling, check configurations for errors., Modify metric calculation.
+user101@example.com,DevOps; Pod stuck in Terminating state,Force delete the pod if it's stuck due to finalizers. Investigate the underlying cause.,`kubectl delete pod <pod-name> --force --grace-period=0`
+user102@example.com,Platform; LoadBalancer service not provisioning,Check cloud provider configuration, quota limits, and network policies.,Check cloud provider logs for errors. Verify quota limits.
+user103@example.com,Security; Privileged containers detected,Avoid using privileged containers unless absolutely necessary. If required, minimize privileges.,Review pod security context and remove `privileged: true`.
+user104@example.com,Database; Slow data writes to persistent volume,Investigate storage performance, network latency, and database configuration.,Check storage performance using `iostat`. Analyze network latency with `ping`.
+user105@example.com,Networking; Unable to access service from outside the cluster,Verify service type (LoadBalancer, NodePort, Ingress), firewall rules, and DNS records.,Ensure external access methods are enabled for Service.
+user106@example.com,Application; Liveness probe failing intermittently,Increase the probe timeout and failure threshold. Investigate application performance.,Edit the pod's liveness probe configuration.
+user107@example.com,Monitoring; High CPU utilization alerts,Identify CPU-intensive pods. Scale application horizontally or vertically. Optimize code.,Use `kubectl top pod` to identify high CPU utilization.
+user108@example.com,Infra; Network plugin failing,Restart the network plugin. Check for configuration errors and compatibility issues.,`kubectl delete pod -n kube-system <network-plugin-pod>`
+user109@example.com,DevOps; Gitlab CI failing during kubectl commands,Verify the KUBECONFIG is properly configured and the service account has sufficient permissions.,Check GitLab CI environment variables.
+user110@example.com,Security; Excessive permissions granted to namespaces,Review and restrict RBAC roles and role bindings for each namespace.,`kubectl get rolebindings -n <namespace>` and `kubectl get roles -n <namespace>`
+user111@example.com,Platform; Cluster Autoscaler not scaling down,Check node utilization, pod disruption budgets, and Cluster Autoscaler configuration.,Examine Cluster Autoscaler logs. Verify node utilization metrics.
+user112@example.com,Database; Database pod failing to recover after node failure,Ensure proper replication setup, persistent volume claims, and pod affinity rules.,Verify database replication status.
+user113@example.com,Networking; CoreDNS failing to resolve external names,Check CoreDNS configuration, forward plugin, and upstream DNS servers.,`kubectl logs -n kube-system <coredns-pod>` and `kubectl exec -it <pod> -n <namespace> -- nslookup google.com`
+user114@example.com,Application; ConfigMap not updating after change,Update the deployment or pod to pick up the changes. Consider using `kubectl rollout restart deployment <deployment-name>`.,Edit ConfigMap then restart Deployment.
+user115@example.com,Infra; Kubelet crashing,Check kubelet logs, system resource utilization, and kernel version.,`journalctl -u kubelet` on the node.
+user116@example.com,DevOps; Deployment not scaling to desired replicas,Check HPA configuration, resource requests, and node availability.,`kubectl get hpa` and `kubectl describe hpa <hpa-name>`
+user117@example.com,Security; Missing pod security policies,Implement Pod Security Admission (PSA) or Pod Security Policies (PSP) to enforce security standards.,Define and apply PSA labels or PSP resources to namespaces.
+user118@example.com,Platform; Node showing NotReady status,Check kubelet status, network connectivity, and disk space.,`kubectl describe node <node-name>` and `journalctl -u kubelet`
+user119@example.com,Database; Data corruption on persistent volume,Investigate storage hardware, file system integrity, and application code.,Run file system checks on the persistent volume.
+user120@example.com,Networking; Service mesh not routing traffic correctly,Verify Istio configuration, service definitions, and traffic management rules.,`istioctl analyze` and `kubectl get virtualservices`
+user121@example.com,DevOps; Problem with ArgoCD syncing,Check the application's configuration in ArgoCD and Kubernetes, and check connectivity between ArgoCD and API, check ArgoCD logs., Check application health in ArgoCD, and make sure the Application CRD configuration is correct.
+user122@example.com,Platform; Missing node labels, Add the appropriate node label to enable correct pod placement on the node, use `kubectl label node <node-name> key=value` to label it correctly.
+user123@example.com,Security; Service account token leaked in logs, Rotate the token, and check who had access, revoke access, and clean the token., Audit who had access, then revoke access, and finally rotate.
+user124@example.com,Database; MongoDB replicaset slow, Validate replicas are online, sync happening correctly, and network policies not blocking., Check mongo logs, then fix the network issues.
+user125@example.com,Networking; Cilium not correctly configured, Validate Cilium deployment and configuration, cilium agent is running and pod CIDRs match cluster, use `cilium status` to see if there any issues.
+user126@example.com,Application; Slow response times due to connection limits, Increase the connection pool size, and optimize connection reuse, implement pooling logic., Refactor connection logic to use connection pools.
+user127@example.com,Infra; No disk space on the VM running K8s nodes, Clean up, resize the volumes. Add monitoring and alerting, scale the disk or clean it up., Use `du -hs` to find the largest offenders, clean or scale them.
+user128@example.com,DevOps; Code not deploying to K8s using CI tool, Check authentication between K8s and CI tool, and validate the deploy key and service account., Use CI tools configuration to validate the deploy key.
+user129@example.com,Security; Secrets stored in Git, Remove the secrets from Git history, and use vault or K8s secrets, use a secrets management tool like HashiCorp vault., Remove secret files, then re-commit and push to Git, use vault.
+user130@example.com,Platform; Cluster API failing to provision VMs,  Check the CAPI configuration, and cluster provider are working correctly, if there are issues, raise it with the provider., Validate logs for provider errors.
+user131@example.com,DevOps; Failing to connect to AWS RDS from Kubernetes, Verify security groups, VPC settings, and Network ACLs, allow traffic to the RDS instance from K8s VPC., Add K8s VPC to RDS security group.
+user132@example.com,Platform; Nodes are frequently being rebooted, Investigate the cause of reboots, validate the underlying OS is running, and there is sufficient capacity., Check linux logs for the cause.
+user133@example.com,Security; Root Access to VMs in Kubernetes, Restrict by minimizing access through JIT IAM or bastion hosts and remove, remove excessive access., Minimize excessive access.
+user134@example.com,Database; MySQL replicaset has split brain issue, Validate data integrity and election happens fast, check cluster quorum, and fix the election process., Validate proper cluster quorum.
+user135@example.com,Networking; MetalLB not loadbalancing to services, Check the BGP setup, if no service is getting IP assigned, add a static IP range., Check MetalLB configuration and BGP peer status.
+user136@example.com,Application; Slow response from the application, Profile, refactor application code, and tune performance, use profiling software., Fix the bottleneck in the application code.
+user137@example.com,Infra; OOMKilled on application, Bump up the memory to avoid the crash. Increase memory to avoid out of memory.,  Increase memory on pods.
+user138@example.com,DevOps; Problems installing helm charts, Verify `helm version` and Tiller is running for Helm V2, and Helm configuration, helm command is working, or check V3 config., Try installing a chart.
+user139@example.com,Security; Default Admin Roles Assigned To Users, Reduce with `kubectl`, enforce least privilege principle, and audit roles., Minimize the number of admin users.
+user140@example.com,Platform; Monitoring Not Showing Metrics for nodes, Verify Prometheus agent or monitoring stack has correct RBAC to monitor all nodes, apply RBAC to the monitor., Validate RBAC permissions.
+user141@example.com,DevOps; Failed to deploy code through Spinnaker,Check the service accounts has enough RBAC, service accounts has permissions., Ensure RBAC has permissions.
+user142@example.com,Platform; VMs being spawned rapidly consuming resources, Add quotas, if you need more VMs, ask for it to be raised with justifications, use quotas to limit over provisioning., Use `kubectl` to set quotas.
+user143@example.com,Security; Kubelet Port publicly exposed,  Add firewalls, use firewall rules, and only open it up to cluster nodes., Add firewall rules.
+user144@example.com,Database; Postgres WAL archiving not working, Validate archiving directories exist and is correctly configured with PG setup, ensure that the directory exists., Double-check config for errors.
+user145@example.com,Networking; Calico failing with connectivity issues, Check configuration, firewall rules, routing tables, cilium agent is configured, use `calicoctl` to check., Use `calicoctl` commands.
+user146@example.com,Application; Performance regression after upgrade,  Analyze changes, performance test, pinpoint issues in the upgrade, performance test and fix the slow areas., Refactor the slow areas.
+user147@example.com,Infra; Node failing health check during rolling upgrades,Investigate node health using cloud provider, and check cluster health., Restart node if needed.
+user148@example.com,DevOps; Scheduled Jobs with CronJob not working,Check configuration, timezones, syntax errors in scheduling, and CronJob is working correctly, fix the cronjob, or reschedule., Validate the cronjob yaml.
+user149@example.com,Security; Too permissive network policies, Audit configuration and remove overly broad configurations., Apply network policies to reduce broad access.
+user150@example.com,Platform; Centralized logging failing to ingest logs,Check fluentd, EFK setup, Elasticsearch, and FluentD is running correctly., Check logs of fluentd.
+user151@example.com,DevOps; Deployment fails due to readiness probe failures,Review readiness probe configuration, application health, and resource limits.,Check the readiness probe settings.
+user152@example.com,Platform; Persistent Volume Claim (PVC) fails to bind to a PV,Verify storage class configuration, capacity, and access modes of PV and PVC.,`kubectl describe pvc <pvc-name>` and `kubectl describe pv <pv-name>`
+user153@example.com,Security; Service Account with Cluster Admin access,Restrict service account permissions to the least required privileges.,Use RBAC roles and rolebindings to limit permissions.
+user154@example.com,Database; Database failing to start due to corrupted data volume,Restore from backup or attempt to repair the volume.,Restore database from backup.
+user155@example.com,Networking; Inter-service communication failing after upgrade,Verify network policies, CNI plugin compatibility, and service DNS resolution.,Check network policy configurations.
+user156@example.com,Application; Application crashing frequently after update,Analyze application logs, resource limits, and environment variables.,Review logs for error messages.
+user157@example.com,Infra; Node experiencing high CPU usage,Identify CPU-intensive processes and optimize application code or scale the application.,Use `top` or `kubectl top node` to identify resource usage.
+user158@example.com,DevOps; Continuous deployment failing with kubectl authentication error,Verify kubeconfig file path, service account permissions, and kubectl version.,Check environment variables for kubeconfig path.
+user159@example.com,Security; Container with capabilities beyond necessary,Remove unnecessary capabilities from the container. Use `securityContext.capabilities.drop`.,`kubectl edit pod <pod-name>` and modify the securityContext.
+user160@example.com,Platform; Cluster Autoscaler not scaling up due to insufficient resources,Check cloud provider quotas, resource requests, and node pool configuration.,Examine Cluster Autoscaler logs for errors.
+user161@example.com,DevOps; Problem with Helm deployment upgrade, Check chart compatibility, helm version, and upgrade hooks, check chart, or validate values., Check for issues.
+user162@example.com,Platform; Missing node labels, Add node labels, and check node selector in Pod spec, add node labels to fix placement., Check pod.yaml.
+user151@example.com,DevOps;KEDA Failing to scale, Check service level metric, set appropriate and test.  ,Validate all the requirements.
+user152@example.com,Platform;ExternalDNS not working with custom DNS providers, Use appropriate configuration, change and test configurations. ,Improve configurations.
+user153@example.com,Security;External Secrets failing due to AWS IAM role, Verify correct role exist on deployment. ,Fix Role issues.
+user154@example.com,Kyverno;Kyverno not validating resource limits, Review policies.  ,Make sure you have correct policies set.
+user155@example.com,Networking;ExternalDNS failing with cloud provider authentication, Check account set up on cloud and fix,   ,Verify connectivity set up.
+user156@example.com,Application;KEDA scaling up too slowly, Check what resource limits on the kubernetes level and set CPU / Memory thresholds. ,Improve set up.
+user157@example.com,Infra;External-DNS Failing with cloudflare set up, Review credentials.  ,Make sure setup is correct.
+user158@example.com,DevOps;External-Secrets not found in service account, Review resources.  , Set resource quotas.
+user159@example.com,Security;Kyverno bypasses rules., Check webhook configuration., Ensure service accounts are correct
+user160@example.com,Platform;ExternalDNS unable to find domain, Check cloud set up and zone, Update service name, Verify deployment set up. ,Ensure service account is set up properly .
+user161@example.com,DevOps;KEDA metrics incorrectly configured., Check metrics,  Check deployment configurations and settings,. .
+user162@example.com,Platform;ExternalDNS failing to work due to cluster upgrade, Check cluster compatibility and apply a new version. .
+user163@example.com,Security;External Secrets operator not working, Check security polices,  Make configuration and review deployment. 
+user164@example.com,Kyverno;Kyverno policies causing deployments to fail ., Modify the resource limits and test it
+user165@example.com,Networking;ExternalDNS failing with Load balancer , Verify the DNS is set up with kubernetes DNS service,and that the cluster can access DNS .. .
+user166@example.com,Application;KEDA not scaling up quickly enough . , Test the deployments.
+user167@example.com,Infra;External-DNS DNS server is getting overloaded . ,Validate new records .
+user168@example.com,DevOps;External-Secrets authentication to cloud provider not working, Review cloud provider credentials.. .
+user169@example.com,Security;Kyverno is not generating audit logs., Enable all logging.
+user170@example.com,Platform;ExternalDNS failing to delete old records, Garbage collect, and fix setup.. .
+user171@example.com,DevOps;KEDA with Scaling slow, Tune the settings, Verify everything is working.
+user172@example.com,Platform;ExternalDNS Failing on Azure, Validate setup.
+user173@example.com,Security;External Secrets with compromised permissions, Use only a restricted service account.
+user174@example.com,Kyverno;Kyverno mutating code, Dry-run and confirm.
+user175@example.com,Networking;ExternalDNS with new version does not work, Check configuration and use all the new settings.
+user176@example.com,Application;KEDA is leaking memory. Test code and fix.
+user177@example.com,Infra;External-DNS with network error. Check connection requirements.
+user178@example.com,DevOps;External-Secrets is not mounted correctly . Validate setup and deploy the service account.
+user179@example.com,Security;Kyverno setting accounts for no reason. Use and assign permissions.
+user180@example.com,Platform;ExternalDNS records point to incorrect node. Use correct IP addresses to fix it.
+user181@example.com,DevOps;KEDA scale down not working. Scale up as necessary to complete deployment.. Check scaling threshold or metrics.
+user182@example.com,Platform;ExternalDNS IP changes are slow.. Shorten TTL.
+user183@example.com,Security;ExternalSecrets Operator failing., Grant all permission to deploy on this cluster
+user184@example.com,Kyverno;Kyverno Webhook Fails, Troubleshoot and restart, .
+user185@example.com,Networking;ExternalDNS setup to use incorrect DNS Record, Ensure DNS records are properly pointed.
+user186@example.com,Application;KEDA scaling up too slowly, . Scale down resources.
+user187@example.com,Infra;External-DNS causing a DDOS ,Implement caching, Use code caching setup .
+user188@example.com,DevOps;External-Secrets secret keys missing, Update keys, redeploy code, . .
+user189@example.com,Security;Kyverno unable to stop service account from accessing all, Isolate service account usage to particular namespace . .
+user1@example.com,DevOps;CoreDNS failing to resolve external names,Check `forward` plugin configuration in CoreDNS ConfigMap, verify upstream DNS servers.,`kubectl edit configmap -n kube-system coredns` and check the `forward` plugin configuration.  `kubectl exec -it <coredns-pod> -n kube-system -- nslookup google.com`
+user2@example.com,Platform;Cilium network policies not being enforced,Verify Cilium agent status, check policy enforcement mode, and examine Cilium policy logs.,`cilium status` and `cilium policy get`
+user3@example.com,ArgoCD;ArgoCD application out of sync,Check target revision, Git repository connectivity, and Kubernetes API server access.,Review the ArgoCD application details in the UI and examine the application controller logs.
+user4@example.com,Networking;CoreDNS pod crashing repeatedly,Check resource limits, DNS zone configuration, and CoreDNS logs.,`kubectl describe pod -n kube-system <coredns-pod>` and `kubectl logs -n kube-system <coredns-pod>`
+user5@example.com,Security;Cilium policy blocking legitimate traffic,Review Cilium policy rules, target selectors, and endpoints.,`cilium policy get` and `cilium endpoint list`
+user6@example.com,DevOps;ArgoCD deployment failing,Check Kubernetes manifests, deployment history, and ArgoCD application logs.,Examine the ArgoCD application details and deployment logs in the UI.
+user7@example.com,Platform;CoreDNS service discovery failing,Verify service names, namespaces, and DNS configuration in pods.,`kubectl exec -it <pod-name> -n <namespace> -- nslookup <service-name>.<namespace>`
+user8@example.com,Infra;Cilium agent failing to start,Check kernel compatibility, network interface configuration, and Cilium logs.,`cilium doctor` and examine the Cilium agent logs on the node.
+user9@example.com,Security;ArgoCD giving wrong permissions, RBAC is not working, Fix it by assigning proper roles and scopes.. Check rbac yaml file for errors.
+user10@example.com,Monitoring;CoreDNS metrics not being collected,Ensure Prometheus is configured to scrape CoreDNS metrics endpoint and that CoreDNS is exposing metrics.,Check Prometheus configuration and CoreDNS deployment settings.
+user11@example.com,Networking;Cilium pod connectivity issues,Verify Cilium network policies, endpoint status, and network reachability.,`cilium endpoint list` and `cilium connectivity test`
+user12@example.com,DevOps;ArgoCD syncing from incorrect branch,Verify the target revision is correct. Check the settings with application controller.. ,Validate settings for the application with controller.
+user13@example.com,Platform;CoreDNS failing to resolve local services, Check setup to setup local settings , Set DNS IP, set correct dns, and test it. ,Use appropriate tools for this validation..
+user14@example.com,Security;Cilium blocking ingress traffic, Review the configurations and check what is going on. Validate CIDR blocks, validate connectivity with the ingress controller. ,Use network testing.
+user15@example.com,Infrastructure;ArgoCD failing to create services, K8s deployment configuration is missing, Check setup. ,Check that you have connectivity .
+user16@example.com,Monitoring;CoreDNS metrics wrong , Check dashboard, Verify CoreDNS metrics are valid, ensure logs are valid, change the configuration to improve the logs.. , Check the deployment..
+user17@example.com,Networking;Cilium routing not working, Setup network routes, fix the cluster configurations ,Test that the network has proper access. ,Validate you don't have firewall blocking.
+user18@example.com,DevOps;ArgoCD unable to connect to git , Test connectivity, Test access and check username / authentication. ,Validate Git repo set up is accurate
+user19@example.com,Platform;CoreDNS, setup local cache to speed up traffic , Check set up and settings. Cache can speed the traffic.. . ,Ensure all settings meet guidelines.
+user20@example.com,Security;Cilium setup with network profile with excessive permission , Minimize it. Review and decrease permissions to service account and access, Set appropriate permissions. . ,Follow least privileges.
+user21@example.com,Networking;ArgoCD deployment setup with new DNS setup , Set it and link services so that it's connected with everything so that the API and other ports work.. . ,Set up new DNS
+user22@example.com,Platform;CoreDNS, Set up firewall, setup firewall and configure security to have proper security , Validate firewall configuration. .
+user23@example.com,Networking;Cilium traffic is getting denied, Implement configurations where traffic is getting allowed. Setup correct network policies so the network does not get blocked. Check networking. .
+user24@example.com,DevOps;ArgoCD not being deployed right.Check services, account and review everything for K8s deploy and setup .Review cluster policy to stop access, ..
+user25@example.com,Infrastructure;CoreDNS is not syncing well.. , Verify load balancing, configure it and review services.  .
+user26@example.com,Monitoring;Cilium - Not reporting to Prometheus . . Set up endpoint for the service.
+user27@example.com,Networking;ArgoCD - Not able to scale up during high demands., Tune deployment and scaling. Validate application performance metrics. Set deployment to have more scaling.
+user28@example.com,Platform;CoreDNS with DNS cache poisoning . Set better TTL settings on DNS. .
+user29@example.com,Security;Cilium configured to access all resources, set the proper settings and follow rule of least privilege,  , Set correct network isolation.
+user30@example.com,Networking;ArgoCD with New cluster configuration ,Set resources properly and also make sure that all are validated.. .
+user31@example.com,Networking;CoreDNS using a external load balancer and it is not configure. . Review all load balancer setting, setup external DNS to point to DNS ..
+user32@example.com,Platform;Cilium is not setup correct , Review and also make sure Cilium has proper privileges in Kubernetes,,. .
+user33@example.com,Security;ArgoCD giving users wrong level of access., Review and check security settings for permissions., .
+user34@example.com,Networking;CoreDNS - High response time. , Tune the network, check cluster setting.  , Add local cache to increase performance..
+user35@example.com,Platform;Cilium network connectivity between cluster failed , Review ACL, check pods . , Check Kubernetes service endpoint..
+user36@example.com,DevOps;ArgoCD Deployment fails,  Set deployment to deploy , Fix resources related to deployment..
+user37@example.com,Infrastructure;CoreDNS CPU getting to 100%. ,Setup more resources to reduce cpu. . .
+user38@example.com,Monitoring;Cilium failing to connect. , Check connectivity, check authentication.  .
+user39@example.com,Security;ArgoCD account can get elevated access. . check RBAC setup with cluster. .
+user40@example.com,Networking;CoreDNS Failing due to DNS loop , Set up External DNS records. .
+user41@example.com,DevOps; DNS resolution from Pods failing intermittently. ,Check core dns connectivity, validate service, , restart.
+user42@example.com,Platform; Cilium not detecting New nodes in cluster, Add manual nodes, Review all set up to work correctly,. .
+user43@example.com,Security; ArgoCD giving access without authentication,Check users. . Restrict access to the dashboard..
+user44@example.com,Infrastructure;CoreDNS Unable to cache, Use redis , add redis integration . .
+user45@example.com,Networking;Cilium Policy denying cross namespace traffic ,Setup cross cluster and allow..,.
+user46@example.com,DevOps;ArgoCD not syncing latest git branch code  ,Set branch with the latest code. .
+user47@example.com,Platform;CoreDNS has corrupted records, Sync records from zone. Fix manual edits.. .
+user48@example.com,Monitoring;Cilium Failing and has errors., check metrics.  .
+user49@example.com,Security;ArgoCD Account has all access, Check RBAC., Check settings. .
+user50@example.com,Infrastructure;CoreDNS getting DNS errors, Restart dns, Check load balancer. .
+user51@example.com,DevOps;ArgoCD failing to deploy due to resource quota, Check resource quotas.  , Add more quota to namespace.
+user52@example.com,Platform;Cilium not able to implement policy, Fix service setup to work properly,, Add new labeler. .
+user53@example.com,Security;ArgoCD Allowing anyone to commit . check access controls , check service access.. .
+user54@example.com,Infrastructure;CoreDNS not working, Delete dns. Start DNS up.. .
+user55@example.com,Networking;Cilium Failing and has network conflicts, Set network correctly to use CIDR. , Review cidr list..
+user56@example.com,DevOps;ArgoCD, Incorrect Service Mesh settings.  , Review documentation.
+user57@example.com,Platform;CoreDNS with memory leak. Fix memory leak to improve stability. , Use fix or upgrade for the service .
+user58@example.com,Monitoring;Cilium metrics are incorrect. , Check code version , check setup. . .
+user59@example.com,Security;ArgoCD with compromised permissions, Rotate authentication keys Check service to fix permissions. . .
+user60@example.com,Infrastructure;CoreDNS setup to fail. Switch version . ,Change version for all deploys..
+user61@example.com,DevOps;ArgoCD does not have the latest code, Manually sync and check branches,. .
+user62@example.com,Platform;Cilium not working, Check network, Use service account to give it all , Review service configurations with . .
+user63@example.com,Security;ArgoCD having open permissions, Fix permissions issue, . . check setup.
+user64@example.com,Infrastructure;CoreDNS not scalable, Configure deployment scaling requirements . Review service with set up..
+user65@example.com,Networking;Cilium using all , Tune configuration. Validate network is setup . .
+user66@example.com,DevOps;ArgoCD syncing code to wrong location., Set code repo locations. , Revalidate set setup.
+user67@example.com,Platform;CoreDNS not validating correctly, Setup more services properly.  Check endpoint. . .
+user68@example.com,Monitoring;Cilium unable to collect metrics , Check metrics server .. Validate Prometheus configuration. .
+user69@example.com,Security;ArgoCD failing on security protocols, . Fix auth settings. .
+user70@example.com,Infrastructure;CoreDNS having issues. , Set resources.  . . Set new resources
+user71@example.com,DevOps;ArgoCD syncs are failing with `Repository connection refused`,Verify network connection to git repo and Kubernetes cluster API access.,Check network configuration.
+user72@example.com,Platform;Cilium policy does not target the correct pods. Verify the matchLabels section..
+user73@example@example.com,Security; ArgoCD giving public access., Disable all accounts and restrict access.., Enable accounts.
+user74@example.com,Infra; CoreDNS not getting logs. Restart the Core DNS.
+user75@example.com,Networking; Cilium blocking web traffic., Change the network..
+user76@example.com,DevOps;ArgoCD can't perform deployment, Check that the deployment is working,  Set up all new resources..
+user77@example.com,Platform;CoreDNS not working after upgrade to Kubernetes, Apply new Kubernetes fix . . .
+user78@example.com,Monitoring;Cilium cannot create new accounts Check all deployments and update them, . . .
+user79@example.com,Security;ArgoCD giving excessive rights on the service account , check permissions and fix them., . ..
+user80@example.com,Infrastructure;CoreDNS leaking information , Fix DNS and set better setting with configuration Check dns setup., Set it with security. . .
+user81@example.com,DevOps;ArgoCD fails to deploy a DaemonSet ,Check pod tolerations and make sure they can be deployed on every node., Verify resource limits are not too low.
+user82@example.com,Platform;Cilium not able to connect to the Kubernetes service endpoint, Update configuration and set proper services. Validate set up with Kubectl get ,. . .
+user83@example.com,Security;ArgoCD giving permissions to use without account., Check authentication and provide access., Set auth
+user84@example.com,Infrastructure;CoreDNS not sending records to the service , Check correct records, check to update and fix., Check all updates, set DNS
+user85@example.com,Networking;Cilium traffic not connecting. Check port forward ..,Use Load Balancer, Use configuration setting.

@@ -1,0 +1,300 @@
+user1@example.com,DevOps;Investigate pod crash loops in the 'frontend' namespace.
+user2@example.com,SRE;Troubleshoot high CPU utilization in 'api-server' deployment.
+user3@example.com,Platform;Diagnose network connectivity issues between pods in different namespaces.
+user4@example.com,DevOps;Resolve persistent volume claim (PVC) binding failures.
+user5@example.com,Security;Audit Kubernetes role-based access control (RBAC) policies.
+user6@example.com,SRE;Optimize resource limits and requests for pods in 'backend' namespace.
+user7@example.com,Platform;Debug ingress controller errors in 'production' environment.
+user8@example.com,DevOps;Identify and fix 'ImagePullBackOff' errors.
+user9@example.com,Security;Review network policies for unnecessary restrictions.
+user10@example.com,SRE;Monitor and address etcd performance issues.
+user11@example.com,Platform;Investigate DNS resolution problems within the cluster.
+user12@example.com,DevOps;Resolve failing health checks for application deployments.
+user13@example.com,Security;Analyze security vulnerabilities reported by Kubernetes audit logs.
+user14@example.com,SRE;Address slow response times from services in 'database' namespace.
+user15@example.com,Platform;Fix node failures impacting application availability.
+user16@example.com,DevOps;Implement automated scaling for deployments based on CPU usage.
+user17@example.com,Security;Configure pod security policies for namespace isolation.
+user18@example.com,SRE;Improve cluster monitoring and alerting for resource bottlenecks.
+user19@example.com,Platform;Optimize storage class performance for dynamic provisioning.
+user20@example.com,DevOps;Troubleshoot service discovery failures within the cluster.
+user21@example.com,Security;Enforce pod resource quotas and limits.
+user22@example.com,SRE;Diagnose problems with persistent volume (PV) lifecycle management.
+user23@example.com,Platform;Debug issues with rolling updates to deployments.
+user24@example.com,DevOps;Address failing container probes for application deployments.
+user25@example.com,Security;Review and update cluster admin access.
+user26@example.com,SRE;Resolve slow startup times for pods in 'messaging' namespace.
+user27@example.com,Platform;Investigate issues with pod affinity and anti-affinity rules.
+user28@example.com,DevOps;Address failing deployments due to configuration errors.
+user29@example.com,Security;Implement network segmentation for cluster namespaces.
+user30@example.com,SRE;Monitor and troubleshoot node resource exhaustion.
+user31@example.com,Platform;Debug issues with service load balancing.
+user32@example.com,DevOps;Fix failing jobs caused by unexpected pod terminations.
+user33@example.com,Security;Secure Kubernetes dashboard access.
+user34@example.com,SRE;Address high memory usage in 'worker' deployment.
+user35@example.com,Platform;Troubleshoot issues with cluster autoscaling.
+user36@example.com,DevOps;Resolve issues related to container log management.
+user37@example.com,Security;Review pod security contexts for proper configuration.
+user38@example.com,SRE;Identify and address performance bottlenecks in the cluster control plane.
+user39@example.com,Platform;Debug service account authorization problems.
+user40@example.com,DevOps;Fix persistent volume (PV) corruption issues.
+user41@example.com,Security;Enforce image signing and verification for container images.
+user42@example.com,SRE;Address node readiness issues.
+user43@example.com,Platform;Troubleshoot storage access failures in 'data' namespace.
+user44@example.com,DevOps;Investigate issues with horizontal pod autoscaling (HPA).
+user45@example.com,Security;Configure and review network policy logs.
+user46@example.com,SRE;Resolve issues with pod scheduling to specific nodes.
+user47@example.com,Platform;Debug issues related to secrets management.
+user48@example.com,DevOps;Address deployment rollbacks due to errors.
+user49@example.com,Security;Implement security scanning for container images.
+user50@example.com,SRE;Troubleshoot issues with container runtime performance.
+user51@example.com,Platform;Investigate problems with resource quotas and limits enforcement.
+user52@example.com,DevOps;Resolve failing deployments due to misconfigured probes.
+user53@example.com,Security;Review service account token handling.
+user54@example.com,SRE;Address slow service responses in 'integration' namespace.
+user55@example.com,Platform;Debug issues with custom resource definitions (CRDs).
+user56@example.com,DevOps;Fix issues with service mesh communication.
+user57@example.com,Security;Audit network traffic between namespaces.
+user58@example.com,SRE;Address high latency issues in service communication.
+user59@example.com,Platform;Troubleshoot issues with persistent volume resizing.
+user60@example.com,DevOps;Resolve issues with statefulset management.
+user61@example.com,Security;Review and update role bindings.
+user62@example.com,SRE;Address issues with pod disruption budgets.
+user63@example.com,Platform;Debug issues with configmap updates.
+user64@example.com,DevOps;Fix failing cronjobs due to misconfiguration.
+user65@example.com,Security;Implement multi-factor authentication for Kubernetes API access.
+user66@example.com,SRE;Address issues with Kubernetes version upgrades.
+user67@example.com,Platform;Troubleshoot issues with cluster add-ons.
+user68@example.com,DevOps;Resolve issues with cluster node provisioning.
+user69@example.com,Security;Review and secure admission controller configurations.
+user70@example.com,SRE;Address slow deployment rollout times.
+user71@example.com,Platform;Debug issues with pod eviction behavior.
+user72@example.com,DevOps;Fix issues with container image vulnerability scanning.
+user73@example.com,Security;Implement network policy for namespace isolation.
+user74@example.com,SRE;Address issues with etcd backups.
+user75@example.com,Platform;Troubleshoot issues with cluster networking overlay.
+user76@example.com,DevOps;Resolve issues with service account token rotation.
+user77@example.com,Security;Review and update cluster-wide security policies.
+user78@example.com,SRE;Address pod start failures due to resource constraints.
+user79@example.com,Platform;Debug issues with cluster resource quotas.
+user80@example.com,DevOps;Fix issues with cluster monitoring and alerting dashboards.
+user81@example.com,Security;Enforce pod security policies for runtime behavior.
+user82@example.com,SRE;Address high error rates in 'billing' namespace.
+user83@example.com,Platform;Troubleshoot issues with persistent volume performance.
+user84@example.com,DevOps;Resolve issues with job completion.
+user85@example.com,Security;Review and secure external access to cluster resources.
+user86@example.com,SRE;Address issues with pod to pod communication.
+user87@example.com,Platform;Debug issues with Kubernetes scheduler behavior.
+user88@example.com,DevOps;Fix issues with service discovery resolution.
+user89@example.com,Security;Implement audit logging for all cluster actions.
+user90@example.com,SRE;Address issues with container resource contention.
+user91@example.com,Platform;Troubleshoot issues with dynamic storage provisioning.
+user92@example.com,DevOps;Resolve failing deployments due to image tag errors.
+user93@example.com,Security;Review and secure Kubernetes dashboard configuration.
+user94@example.com,SRE;Address node pressure issues.
+user95@example.com,Platform;Debug issues with pod tolerations and taints.
+user96@example.com,DevOps;Fix issues with container security context settings.
+user97@example.com,Security;Implement pod network policies for east-west traffic.
+user98@example.com,SRE;Address issues with Kubernetes API server performance.
+user99@example.com,Platform;Troubleshoot issues with node drain operations.
+user100@example.com,DevOps;Resolve issues with application logging in Kubernetes.
+user101@example.com,SecOps;Review and update Kubernetes role-based access control (RBAC) permissions.
+user102@example.com,SRE;Optimize resource utilization for microservices in the 'services' namespace.
+user103@example.com,Platform;Diagnose and fix network performance degradation between pods.
+user104@example.com,DevOps;Troubleshoot persistent volume claim (PVC) failures during pod creation.
+user105@example.com,SecOps;Implement security policies to restrict unauthorized access to Kubernetes resources.
+user106@example.com,SRE;Investigate and resolve high CPU usage spikes in the 'database' deployment.
+user107@example.com,Platform;Debug and resolve issues with ingress controller configuration and routing.
+user108@example.com,DevOps;Identify and rectify 'CrashLoopBackOff' errors in application deployments.
+user109@example.com,SecOps;Conduct regular audits of network policies to ensure proper segmentation.
+user110@example.com,SRE;Monitor and optimize etcd cluster health and performance.
+user111@example.com,Platform;Resolve DNS resolution problems within the Kubernetes cluster.
+user112@example.com,DevOps;Address failing health checks for pods in the 'app-frontend' namespace.
+user113@example.com,SecOps;Analyze security vulnerabilities reported in Kubernetes event logs.
+user114@example.com,SRE;Troubleshoot slow response times from services in the 'analytics' namespace.
+user115@example.com,Platform;Fix node health issues that are impacting application performance.
+user116@example.com,DevOps;Implement and configure horizontal pod autoscaling (HPA) for deployments.
+user117@example.com,SecOps;Enhance pod security policies to improve namespace isolation.
+user118@example.com,SRE;Monitor and proactively manage resource bottlenecks in the cluster.
+user119@example.com,Platform;Optimize storage class configurations for improved dynamic provisioning performance.
+user120@example.com,DevOps;Investigate and resolve service discovery failures for inter-service communication.
+user121@example.com,SecOps;Enforce resource quotas and limits across all namespaces to prevent resource contention.
+user122@example.com,SRE;Diagnose and fix persistent volume (PV) binding issues.
+user123@example.com,Platform;Debug issues with rolling updates and ensure zero-downtime deployments.
+user124@example.com,DevOps;Address failed container probes that lead to unnecessary pod restarts.
+user125@example.com,SecOps;Review and reduce the scope of admin access for cluster operations.
+user126@example.com,SRE;Optimize pod startup times in the 'queue' namespace.
+user127@example.com,Platform;Investigate pod affinity and anti-affinity configurations for performance gains.
+user128@example.com,DevOps;Address deployment failures due to incorrect configuration settings.
+user129@example.com,SecOps;Implement and maintain proper network segmentation among cluster namespaces.
+user130@example.com,SRE;Monitor and resolve node resource exhaustion to prevent application outages.
+user131@example.com,Platform;Debug and fix issues with service load balancing across multiple pods.
+user132@example.com,DevOps;Address job failures caused by unexpected pod terminations.
+user133@example.com,SecOps;Secure access to the Kubernetes dashboard with appropriate authentication.
+user134@example.com,SRE;Investigate high memory consumption in the 'worker-pool' deployment.
+user135@example.com,Platform;Troubleshoot and resolve issues with Kubernetes cluster autoscaling.
+user136@example.com,DevOps;Manage container logging and ensure logs are properly collected and stored.
+user137@example.com,SecOps;Review and adjust pod security contexts for improved security.
+user138@example.com,SRE;Identify and address performance bottlenecks within the Kubernetes control plane.
+user139@example.com,Platform;Debug authorization issues related to service accounts.
+user140@example.com,DevOps;Resolve persistent volume corruption issues.
+user141@example.com,SecOps;Implement image signing and verification for all container images.
+user142@example.com,SRE;Investigate and resolve node readiness issues.
+user143@example.com,Platform;Troubleshoot storage access failures in the 'data-store' namespace.
+user144@example.com,DevOps;Investigate issues with horizontal pod autoscaling (HPA) effectiveness.
+user145@example.com,SecOps;Configure and review network policy logs for security events.
+user146@example.com,SRE;Resolve pod scheduling issues and improve pod placement strategies.
+user147@example.com,Platform;Debug issues with secrets management within the cluster.
+user148@example.com,DevOps;Address deployment rollbacks and identify root causes.
+user149@example.com,SecOps;Implement vulnerability scanning for all container images.
+user150@example.com,SRE;Troubleshoot issues related to container runtime performance and stability.
+user151@example.com,Platform;Investigate and resolve issues with resource quotas and limit enforcement.
+user152@example.com,DevOps;Resolve deployment failures caused by misconfigured liveness and readiness probes.
+user153@example.com,SecOps;Review and optimize service account token usage and handling.
+user154@example.com,SRE;Investigate slow service responses in the 'middleware' namespace.
+user155@example.com,Platform;Debug issues related to custom resource definitions (CRDs).
+user156@example.com,DevOps;Fix issues related to service mesh performance and communication.
+user157@example.com,SecOps;Audit network traffic between namespaces for security violations.
+user158@example.com,SRE;Address high latency issues in service communication and optimize performance.
+user159@example.com,Platform;Troubleshoot issues with persistent volume resizing and expansion.
+user160@example.com,DevOps;Resolve issues with statefulset scaling and management.
+user161@example.com,SecOps;Review and update role bindings to align with the principle of least privilege.
+user162@example.com,SRE;Address issues with pod disruption budget configurations.
+user163@example.com,Platform;Debug and resolve issues with configmap updates and propagation.
+user164@example.com,DevOps;Fix cronjob failures due to incorrect or outdated configurations.
+user165@example.com,SecOps;Implement multi-factor authentication (MFA) for Kubernetes API server access.
+user166@example.com,SRE;Address issues with the Kubernetes version upgrade process.
+user167@example.com,Platform;Troubleshoot issues with various cluster add-ons.
+user168@example.com,DevOps;Resolve issues related to cluster node provisioning and scaling.
+user169@example.com,SecOps;Review and secure admission controller configurations for better security.
+user170@example.com,SRE;Address issues with slow deployment rollout and improve deployment times.
+user171@example.com,Platform;Debug issues with pod eviction strategies and behaviors.
+user172@example.com,DevOps;Fix issues with container image vulnerability scanning.
+user173@example.com,SecOps;Implement and enforce network policies for namespace isolation.
+user174@example.com,SRE;Address issues with etcd backups and ensure data integrity.
+user175@example.com,Platform;Troubleshoot issues with the cluster networking overlay configuration.
+user176@example.com,DevOps;Resolve issues with service account token rotation processes.
+user177@example.com,SecOps;Review and update cluster-wide security policies.
+user178@example.com,SRE;Address pod start failures due to resource constraints.
+user179@example.com,Platform;Debug issues with cluster resource quotas and enforcement.
+user180@example.com,DevOps;Fix issues with cluster monitoring and alerting dashboards.
+user181@example.com,SecOps;Enforce pod security policies for runtime behavior and minimize risks.
+user182@example.com,SRE;Investigate high error rates in the 'payments' namespace.
+user183@example.com,Platform;Troubleshoot issues with persistent volume performance.
+user184@example.com,DevOps;Resolve issues with job completion and success criteria.
+user185@example.com,SecOps;Review and secure external access to cluster resources.
+user186@example.com,SRE;Address issues with pod to pod communication and optimize network routes.
+user187@example.com,Platform;Debug issues with Kubernetes scheduler behavior and pod placements.
+user188@example.com,DevOps;Fix issues with service discovery resolution across namespaces.
+user189@example.com,SecOps;Implement comprehensive audit logging for all cluster actions.
+user190@example.com,SRE;Address issues with container resource contention and resource sharing.
+user191@example.com,Platform;Troubleshoot issues with dynamic storage provisioning for various workloads.
+user192@example.com,DevOps;Resolve failing deployments due to image tag errors.
+user193@example.com,SecOps;Review and secure the Kubernetes dashboard configuration.
+user194@example.com,SRE;Address node pressure issues and improve node stability.
+user195@example.com,Platform;Debug issues with pod tolerations, taints, and scheduling.
+user196@example.com,DevOps;Fix issues with container security context settings.
+user197@example.com,SecOps;Implement pod network policies for east-west traffic.
+user198@example.com,SRE;Address issues with Kubernetes API server performance.
+user199@example.com,Platform;Troubleshoot issues with node drain operations.
+user200@example.com,DevOps;Resolve issues with application logging in Kubernetes.
+user201@example.com,Support;Debug issue with the liveness probe in the pod.
+user202@example.com,Support;Fix the issue where a pod is not in a ready state.
+user203@example.com,Support;Resolve the issue where the container image is not found.
+user204@example.com,Support;Address the issue where the container is crashing repeatedly.
+user205@example.com,Support;Fix the pod stuck in the 'Pending' state.
+user206@example.com,Support;Address the issue where a service cannot reach a pod.
+user207@example.com,Support;Fix the issue with the container failing to start.
+user208@example.com,Support;Address the issue where the pod is being evicted.
+user209@example.com,Support;Resolve the issue with the Kubernetes API server not responding.
+user210@example.com,Support;Debug issue with the readiness probe in the pod.
+user211@example.com,Support;Resolve the issue with the persistent volume claim not binding.
+user212@example.com,Support;Fix the issue with the service not exposing the correct ports.
+user213@example.com,Support;Address the issue with the container log files not being generated.
+user214@example.com,Support;Fix the issue where the pod is constantly restarting.
+user215@example.com,Support;Address the issue where a container cannot access the network.
+user216@example.com,Support;Debug the issue with the pod's resource limits being too low.
+user217@example.com,Support;Resolve the issue with the pod failing to schedule on a node.
+user218@example.com,Support;Address the issue where a pod cannot access a config map.
+user219@example.com,Support;Fix the issue with the pod exceeding its memory limit.
+user220@example.com,Support;Debug issue with the container not able to get the env var.
+user221@example.com,Support;Address the issue where a job pod is failing to complete.
+user222@example.com,Support;Resolve the issue with the cluster's autoscaler not working.
+user223@example.com,Support;Fix the issue with the service account not having enough permissions.
+user224@example.com,Support;Address the issue where a pod is taking too long to start.
+user225@example.com,Support;Resolve the issue with the ingress controller not working.
+user226@example.com,Support;Debug issue with the config map not being updated.
+user227@example.com,Support;Fix the issue where a pod cannot access a secret.
+user228@example.com,Support;Address the issue with a container not being able to read from a file.
+user229@example.com,Support;Debug the issue with the pod crashing due to OOM.
+user230@example.com,Support;Fix issue where the deployments are not scaling up.
+user231@example.com,Support;Debug why a pod cannot mount a volume.
+user232@example.com,Support;Check the high cpu utilization in one node.
+user233@example.com,Support;Check the memory problem.
+user234@example.com,Support;Fix why the ingress is not working.
+user235@example.com,Support;Address issue with the service mesh.
+user236@example.com,Support;Fix the DNS issue in the pod.
+user237@example.com,Support;Check the image policy problem.
+user238@example.com,Support;Debug problem with RBAC.
+user239@example.com,Support;Resolve the issue with the deployment not rolling out.
+user240@example.com,Support;Debug the issue with the cluster not auto-healing.
+user241@example.com,Support;Resolve an issue with the Kubelet not working.
+user242@example.com,Support;Fix issue with the cluster add-ons.
+user243@example.com,Support;Debug issue with a node join.
+user244@example.com,Support;Debug the secret issue.
+user245@example.com,Support;Address problem with the Cronjob.
+user246@example.com,Support;Fix the issue with the configmap.
+user247@example.com,Support;Debug the network policy issue.
+user248@example.com,Support;Fix the admission controller problem.
+user249@example.com,Support;Resolve the pod disruption budget issue.
+user250@example.com,Support;Fix the container runtime issue.
+user251@example.com,Support;Investigate why certain pods are getting stuck in the `ContainerCreating` state.
+user252@example.com,Support;Address the issue of a deployment not receiving traffic.
+user253@example.com,Support;Check the storage limit issue.
+user254@example.com,Support;Debug why the pod cannot get the data from the PV.
+user255@example.com,Support;Check the issue about the security context.
+user256@example.com,Support;Debug the pod crash loop.
+user257@example.com,Support;Fix the issue with the scheduler.
+user258@example.com,Support;Check the problem with the HPA.
+user259@example.com,Support;Fix the volume resize issue.
+user260@example.com,Support;Debug the problem with the container image tag.
+user261@example.com,Support;Address the issue with the node affinity rules.
+user262@example.com,Support;Fix the issue with the node taint.
+user263@example.com,Support;Debug the problem with the deployment rollout.
+user264@example.com,Support;Resolve the issue with the namespace.
+user265@example.com,Support;Fix the problem with the pod security.
+user266@example.com,Support;Check why the image cannot be pull.
+user267@example.com,Support;Resolve the issue with the logs.
+user268@example.com,Support;Debug the issue with the service not mapping.
+user269@example.com,Support;Fix the error about the etcd.
+user270@example.com,Support;Address issue with the Kube-proxy.
+user271@example.com,Support;Check why the pod is not terminating.
+user272@example.com,Support;Debug the network overlay.
+user273@example.com,Support;Address problem with the api server.
+user274@example.com,Support;Fix the problem with the namespace isolation.
+user275@example.com,Support;Check the problem with the resources quotas.
+user276@example.com,Support;Debug the problem with the node resource.
+user277@example.com,Support;Fix issue with the pod priority.
+user278@example.com,Support;Address the issue with the load balancer.
+user279@example.com,Support;Debug problem with the image pull back off.
+user280@example.com,Support;Fix the high latency issue.
+user281@example.com,Support;Resolve the issue with the port not open.
+user282@example.com,Support;Check the network configuration.
+user283@example.com,Support;Debug the issue with the pod and service account.
+user284@example.com,Support;Fix the container log issue.
+user285@example.com,Support;Address issue with the container status.
+user286@example.com,Support;Fix the issue with the statefull set.
+user287@example.com,Support;Debug the issue with the job status.
+user288@example.com,Support;Address issue with the volume mounting.
+user289@example.com,Support;Fix the issue with the pod evicted.
+user290@example.com,Support;Check the issue with the pod scheduling.
+user291@example.com,Support;Debug the issue with the pod and node communication.
+user292@example.com,Support;Fix issue with the secret volume.
+user293@example.com,Support;Address the problem with the deployment rollout.
+user294@example.com,Support;Check why the node is not ready.
+user295@example.com,Support;Debug the issue with the storage class.
+user296@example.com,Support;Fix the issue with the container log volume.
+user297@example.com,Support;Resolve the issue with the node pressure.
+user298@example.com,Support;Address the issue with the persistent volume lifecycle.
+user299@example.com,Support;Fix the issue with the node and pod communication.
+user300@example.com,Support;Debug the issue with the container.

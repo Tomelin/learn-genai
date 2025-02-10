@@ -1,0 +1,144 @@
+warning,FailedScheduling,Insufficient CPU resources available,cluster-alpha
+error,FailedCreatePodSandBox,Failed to create pod sandbox,cluster-beta
+warning,Unhealthy,Liveness probe failed,cluster-gamma
+error,BackOff,Back-off restarting failed container,cluster-delta
+warning,FailedMount,MountVolume.SetUp failed,cluster-epsilon
+error,FailedAttachVolume,AttachVolume.Attach failed,cluster-zeta
+warning,FailedSync,Error syncing pod,cluster-eta
+error,ImagePullBackOff,Failed to pull image,cluster-theta
+warning,NodeNotReady,Node is not ready,cluster-iota
+error,FailedBinding,Failed to bind pod,cluster-kappa
+warning,FailedScheduling,Insufficient memory resources available,cluster-lambda
+error,FailedCreatePodSandBox,Timeout creating pod sandbox,cluster-mu
+warning,Unhealthy,Readiness probe failed,cluster-nu
+error,CrashLoopBackOff,Container crashed and is in crash loop,cluster-xi
+warning,FailedMount,MountVolume.MountDevice failed,cluster-omicron
+error,FailedAttachVolume,AttachVolume.Detach failed,cluster-pi
+warning,FailedSync,Error syncing pod spec,cluster-rho
+error,ErrImagePull,Failed to pull image: registry error,cluster-sigma
+warning,NodeDiskPressure,Node has disk pressure,cluster-tau
+error,FailedBinding,Failed to bind pod: no matching node,cluster-upsilon
+warning,FailedScheduling,Insufficient ephemeral-storage resources,cluster-phi
+error,FailedCreatePodSandBox,Failed to set up pod network,cluster-chi
+warning,Unhealthy,Startup probe failed,cluster-psi
+error,BackOff,Back-off pulling image,cluster-omega
+warning,FailedMount,MountVolume.UnmountDevice failed,cluster-alpha-1
+error,FailedAttachVolume,AttachVolume.VerifyAttach failed,cluster-beta-1
+warning,FailedSync,Error syncing pod network status,cluster-gamma-1
+error,ImagePullBackOff,Failed to pull image: connection error,cluster-delta-1
+warning,NodeMemoryPressure,Node has memory pressure,cluster-epsilon-1
+error,FailedBinding,Failed to bind pod: conflicting node labels,cluster-zeta-1
+warning,FailedScheduling,Insufficient extended resource,cluster-eta-1
+error,FailedCreatePodSandBox,Failed to allocate pod resources,cluster-theta-1
+warning,Unhealthy,HTTP probe failed,cluster-iota-1
+error,CrashLoopBackOff,Container restart back-off,cluster-kappa-1
+warning,FailedMount,MountVolume.WaitForAttach failed,cluster-lambda-1
+error,FailedAttachVolume,AttachVolume.VerifyAttach failed,cluster-mu-1
+warning,FailedSync,Error syncing container state,cluster-nu-1
+error,ErrImagePull,Failed to pull image: authorization error,cluster-xi-1
+warning,NodePIDPressure,Node has PID pressure,cluster-omicron-1
+error,FailedBinding,Failed to bind pod: pod anti-affinity,cluster-pi-1
+warning,FailedScheduling,Insufficient hugepage resources,cluster-rho-1
+error,FailedCreatePodSandBox,Failed to setup cni,cluster-sigma-1
+warning,Unhealthy,TCP probe failed,cluster-tau-1
+error,BackOff,Back-off starting container,cluster-upsilon-1
+warning,FailedMount,MountVolume.Teardown failed,cluster-phi-1
+error,FailedAttachVolume,AttachVolume.CheckAttach failed,cluster-chi-1
+warning,FailedSync,Error syncing container health status,cluster-psi-1
+error,ImagePullBackOff,Failed to pull image: not found,cluster-omega-1
+warning,NodeNetworkUnavailable,Node network not configured,cluster-alpha-2
+error,FailedBinding,Failed to bind pod: pod affinity,cluster-beta-2
+warning,FailedScheduling,Insufficient device-plugin resources,cluster-gamma-2
+error,FailedCreatePodSandBox,Failed to set up pod sandbox: no cni,cluster-delta-2
+warning,Unhealthy,Command probe failed,cluster-epsilon-2
+error,CrashLoopBackOff,Container is unhealthy,cluster-zeta-2
+warning,FailedMount,MountVolume.CleanUp failed,cluster-eta-2
+error,FailedAttachVolume,AttachVolume.Unmount failed,cluster-theta-2
+warning,FailedSync,Error syncing container readiness status,cluster-iota-2
+error,ErrImagePull,Failed to pull image: bad digest,cluster-kappa-2
+warning,NodeUnknown,Node is in unknown state,cluster-lambda-2
+error,FailedBinding,Failed to bind pod: toleration,cluster-mu-2
+warning,FailedScheduling,Insufficient custom resource,cluster-nu-2
+error,FailedCreatePodSandBox,Failed to create pod: insufficient resources,cluster-xi-2
+warning,Unhealthy,GRPC probe failed,cluster-omicron-2
+error,BackOff,Back-off terminated container,cluster-pi-2
+warning,FailedMount,MountVolume.UnmountDevice failed: timeout,cluster-rho-2
+error,FailedAttachVolume,AttachVolume.Attach failed: timeout,cluster-sigma-2
+warning,FailedSync,Error syncing container image status,cluster-tau-2
+error,ImagePullBackOff,Failed to pull image: invalid config,cluster-upsilon-2
+warning,NodeNotReady,Kubelet is not ready,cluster-phi-2
+error,FailedBinding,Failed to bind pod: taint,cluster-chi-2
+warning,FailedScheduling,Insufficient storage resources,cluster-psi-2
+error,FailedCreatePodSandBox,Failed to create pod sandbox: error,cluster-omega-2
+warning,Unhealthy,Exec probe failed,cluster-alpha-3
+error,CrashLoopBackOff,Container was evicted,cluster-beta-3
+warning,FailedMount,MountVolume.CleanUp failed: timeout,cluster-gamma-3
+error,FailedAttachVolume,AttachVolume.Detach failed: timeout,cluster-delta-3
+warning,FailedSync,Error syncing container liveness status,cluster-epsilon-3
+error,ErrImagePull,Failed to pull image: server error,cluster-zeta-3
+warning,NodeKernelDeadlock,Node experienced a kernel deadlock,cluster-eta-3
+error,FailedBinding,Failed to bind pod: topology spread constraint,cluster-theta-3
+warning,FailedScheduling,Insufficient hugepage 2Mi resources,cluster-iota-3
+error,FailedCreatePodSandBox,Failed to create pod sandbox: network issue,cluster-kappa-3
+warning,Unhealthy,Container runtime probe failed,cluster-lambda-3
+error,BackOff,Back-off restarting failed pod,cluster-mu-3
+warning,FailedMount,MountVolume.SetUp failed: invalid mount,cluster-nu-3
+error,FailedAttachVolume,AttachVolume.VerifyAttach failed: error,cluster-xi-3
+warning,FailedSync,Error syncing pod lifecycle,cluster-omicron-3
+error,ImagePullBackOff,Failed to pull image: access denied,cluster-pi-3
+warning,NodeReady,Node has been ready for too long,cluster-rho-3
+error,FailedBinding,Failed to bind pod: no volume mount,cluster-sigma-3
+warning,FailedScheduling,Insufficient hugepage 1Gi resources,cluster-tau-3
+error,FailedCreatePodSandBox,Failed to create pod sandbox: security issue,cluster-upsilon-3
+warning,Unhealthy,Container port probe failed,cluster-phi-3
+error,CrashLoopBackOff,Container terminated unexpectedly,cluster-chi-3
+warning,FailedMount,MountVolume.MountDevice failed: invalid device,cluster-psi-3
+error,FailedAttachVolume,AttachVolume.CheckAttach failed: timeout,cluster-omega-3
+warning,FailedSync,Error syncing container startup status,cluster-alpha-4
+error,ErrImagePull,Failed to pull image: not authorized,cluster-beta-4
+warning,NodeConditionFalse,Node condition false,cluster-gamma-4
+error,FailedBinding,Failed to bind pod: not matched node selector,cluster-delta-4
+warning,FailedScheduling,Insufficient local ephemeral storage resources,cluster-epsilon-4
+error,FailedCreatePodSandBox,Failed to create pod sandbox: storage issue,cluster-zeta-4
+warning,Unhealthy,Unknown probe failed,cluster-eta-4
+error,BackOff,Back-off terminated pod,cluster-theta-4
+warning,FailedMount,MountVolume.UnmountDevice failed: not mounted,cluster-iota-4
+error,FailedAttachVolume,AttachVolume.Detach failed: error,cluster-kappa-4
+warning,FailedSync,Error syncing pod controller status,cluster-lambda-4
+error,ImagePullBackOff,Failed to pull image: rate limit,cluster-mu-4
+warning,NodeRebooted,Node was rebooted,cluster-nu-4
+error,FailedBinding,Failed to bind pod: No topology,cluster-xi-4
+warning,FailedScheduling,Insufficient resources: CPU and Memory,cluster-omicron-4
+error,FailedCreatePodSandBox,Failed to create pod sandbox: device issue,cluster-pi-4
+warning,Unhealthy,Missing probe failed,cluster-rho-4
+error,CrashLoopBackOff,Container was killed,cluster-sigma-4
+warning,FailedMount,MountVolume.Teardown failed: error,cluster-tau-4
+error,FailedAttachVolume,AttachVolume.VerifyAttach failed: not attached,cluster-upsilon-4
+warning,FailedSync,Error syncing container resources,cluster-phi-4
+error,ErrImagePull,Failed to pull image: invalid image,cluster-chi-4
+warning,NodeReady,Node is in unknown zone,cluster-psi-4
+error,FailedBinding,Failed to bind pod: No Affinity,cluster-omega-4
+warning,FailedScheduling,Insufficient resources: Ephemeral storage and Memory,cluster-alpha-5
+error,FailedCreatePodSandBox,Failed to create pod sandbox: disk pressure,cluster-beta-5
+warning,Unhealthy,No probe found,cluster-gamma-5
+error,BackOff,Back-off restarting init containers,cluster-delta-5
+warning,FailedMount,MountVolume.SetUp failed: not mounted,cluster-epsilon-5
+error,FailedAttachVolume,AttachVolume.Mount failed,cluster-zeta-5
+warning,FailedSync,Error syncing pod containers,cluster-eta-5
+error,ImagePullBackOff,Failed to pull image: registry connection error,cluster-theta-5
+warning,NodeOutOfDisk,Node is out of disk,cluster-iota-5
+error,FailedBinding,Failed to bind pod: missing node selector,cluster-kappa-5
+warning,FailedScheduling,Insufficient resources: extended resource,cluster-lambda-5
+error,FailedCreatePodSandBox,Failed to create pod sandbox: exceeded limits,cluster-mu-5
+warning,Unhealthy,Container missing probe,cluster-nu-5
+error,CrashLoopBackOff,Container was OOMKilled,cluster-xi-5
+warning,FailedMount,MountVolume.WaitForAttach failed: timeout,cluster-omicron-5
+error,FailedAttachVolume,AttachVolume.Detach failed: device not found,cluster-pi-5
+warning,FailedSync,Error syncing container status: unknown error,cluster-rho-5
+error,ErrImagePull,Failed to pull image: unsupported scheme,cluster-sigma-5
+warning,NodeDiskPressure,Node is under disk pressure: full,cluster-tau-5
+error,FailedBinding,Failed to bind pod: missing volume mount,cluster-upsilon-5
+warning,FailedScheduling,Insufficient resources: CPU and Ephemeral storage,cluster-phi-5
+error,FailedCreatePodSandBox,Failed to create pod sandbox: quota issue,cluster-chi-5
+warning,Unhealthy,Container port probe failed: timeout,cluster-psi-5
+error,BackOff,Back-off restarting pod: exceeded limits,cluster-omega-5
